@@ -1,22 +1,234 @@
 <!DOCTYPE html>
-<html>
-<head>
-    <title>My Resume</title>
-</head>
-<body>
-    <h1>My Resume</h1>
-    <p>Click the link below to view or download my resume:</p>
-    <a href="" target="_blank">Download My Resume</a>
-</body>
-</html>
+<!--
+    Plain-Academic by Vasilios Mavroudis
+    Released under the Simplified BSD License/FreeBSD (2-clause) License.
+    https://github.com/mavroudisv/plain-academic
+-->
 
-<!DOCTYPE html>
-<html>
-<head>
-    <meta http-equiv="refresh" content="0; url=Resume_of_Kazi_Hasan.pdf">
-    <title>Redirecting...</title>
-</head>
-<body>
-    <p>If you are not redirected automatically, <a href="Resume_of_Kazi_Hasan.pdf">click here to view the resume</a>.</p>
-</body>
+<html lang="en">
+  <head>
+    <title>Kazi Hasan Ibn Arif</title>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <link
+      rel="stylesheet"
+      href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css"
+    />
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.0/jquery.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/js/bootstrap.min.js"></script>
+    <link
+      href="https://fonts.googleapis.com/css?family=Oswald:700"
+      rel="stylesheet"
+      type="text/css"
+    />
+  </head>
+
+  <body>
+    <!-- Navigation -->
+    <nav class="navbar navbar-inverse navbar-static-top" role="navigation">
+      <div class="container">
+        <div class="navbar-header">
+          <button
+            type="button"
+            class="navbar-toggle collapsed"
+            data-toggle="collapse"
+            data-target="#bs-example-navbar-collapse-1"
+          >
+            <span class="sr-only">Toggle navigation</span>
+            <span class="icon-bar"></span>
+            <span class="icon-bar"></span>
+            <span class="icon-bar"></span>
+          </button>
+        </div>
+
+        <!-- Collect the nav links, forms, and other content for toggling -->
+        <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
+          <ul class="nav navbar-nav">
+            <li><a href="#home">About Me</a></li>
+            <li><a href="#news" style="color: red">Latest News</a></li>
+            <li><a href="#research">Research</a></li>
+            <li><a href="resume.html">Resume</a></li>
+          </ul>
+        </div>
+      </div>
+    </nav>
+
+    <!-- Page Content -->
+    <div class="container">
+      <div class="row">
+        <!-- Entries Column -->
+        <div class="col-md-8" id="home" style="height: auto">
+          <!-- Main Image -->
+          <img
+            class="img-responsive"
+            src="image.jpg"
+            alt="Kazi Hasan Ibn Arif"
+            style="max-width: 200px; height: auto"
+          /><br />
+
+          <div style="margin-top: 3%; text-align: justify">
+            <p>
+              I am a PhD student in Machine Learning & Systems at
+              <a href="https://people.cs.vt.edu/boji/group.html"
+                >Virginia Tech SNAIL Lab</a
+              >
+              under <a href="https://people.cs.vt.edu/boji/">Dr. Bo Ji</a>'s
+              advising. My research focuses on optimizing the training and
+              inference of multimodal LLMs, specializing in techniques like
+              efficient self-attention, token dropping, layer skipping,
+              sparsity, and quantization. I have prior experience in the
+              research and development of AI-driven recommendation systems at
+              IQVIA. I am passionate about advancing the field of AI,
+              particularly in the areas of large language models and machine
+              learning systems.
+            </p>
+          </div>
+        </div>
+
+        <!-- Contact Info on the Sidebar -->
+        <div class="col-md-4">
+          <div style="font-family: 'Oswald', sans-serif; font-size: 32px">
+            <b>Hasan Arif</b>
+          </div>
+          <br />
+          <p><b>hasanarif 🍏 vt 🔵 edu</b><br /></p>
+          <p>
+            Phd Student at Virginia Tech<br />
+            Interested in Machine Learning Systems<br />
+            <br />
+            Phone: +1 540 449 6919<br />
+            Office: Gilbert Place, Room 4215<br />
+            Address: 220 Gilbert Street, Blacksburg, VA 24060<br />
+          </p>
+        </div>
+
+        <!-- Links on the Sidebar -->
+        <div class="col-md-4" style="margin-top: 2%">
+          <dd>
+            <a
+              href="https://scholar.google.com/citations?user=3OhNWLcAAAAJ&hl=en"
+              >Google Scholar</a
+            >
+          </dd>
+          <dd>
+            <a href="https://www.linkedin.com/in/kazi-hasan-ibn-arif-8b78a61a3/"
+              >LinkedIn</a
+            >
+          </dd>
+          <dd>
+            <a href="https://github.com/hasanar1f">Github</a>
+          </dd>
+        </div>
+
+        <!-- Latest News -->
+        <div class="col-md-8" id="news" style="height: auto">
+          <h2 style="color: red">Latest News</h2>
+          <ul>
+            <li>
+              <strong>Aug 2021:</strong> Our paper on efficient inference of
+              multimodal LLMs has been accepted at AAAI 2022.
+            </li>
+            <li>
+              <strong>Jul 2021:</strong> I have joined the SNAIL Lab at Virginia
+              Tech as a PhD student.
+            </li>
+            <li>
+              <strong>May 2021:</strong> I have completed my Master's in
+              Computer Science at Virginia Tech.
+            </li>
+          </ul>
+        </div>
+
+        <!-- Publications and Projects -->
+        <div class="col-md-8" id="research" style="height: 100vh">
+          <h2>Research and Publications</h2>
+
+          <strong>Peer-reviewed</strong><br />
+          <ul>
+            <li>
+              <a href="https://arxiv.org/abs/2408.10945"
+                >HiRED: Attention-Guided Token Dropping for Efficient Inference
+                of High-Resolution Vision-Language Models</a
+              >
+              by <b>Kazi Hasan Ibn Arif</b>, JinYi Yoon, Dimitrios S.
+              Nikolopoulos, Hans Vandierendonck, Deepu John, Bo Ji,
+              <i
+                >Proceedings of the AAAI Conference on Artificial
+                Intelligence</i
+              >
+            </li>
+
+            <li>
+              <a href="https://arxiv.org/abs/2408.10945"
+                >Equitable Skin Disease Prediction Using Transfer Learning and
+                Domain Adaptation</a
+              >
+              by Sajib Acharjee Dip, <b>Kazi Hasan Ibn Arif</b>, Uddip Acharjee
+              Shuvo, Ishtiaque Ahmed Khan, Na Meng
+              <i
+                >Proceedings of the AAAI Conference on Artificial
+                Intelligence</i
+              >
+            </li>
+          </ul>
+
+          <strong>Preprints</strong><br />
+          <ul>
+            <li>
+              <a href="https://arxiv.org/abs/2408.10945"
+                >HiRED: Attention-Guided Token Dropping for Efficient Inference
+                of High-Resolution Vision-Language Models</a
+              >
+              by Kazi Hasan Ibn Arif, JinYi Yoon, Dimitrios S. Nikolopoulos,
+              Hans Vandierendonck, Deepu John, Bo Ji,
+              <i
+                >Proceedings of the AAAI Conference on Artificial
+                Intelligence</i
+              >
+            </li>
+
+            <li>
+              <a href="https://arxiv.org/abs/2408.10945"
+                >HiRED: Attention-Guided Token Dropping for Efficient Inference
+                of High-Resolution Vision-Language Models</a
+              >
+              by Kazi Hasan Ibn Arif, JinYi Yoon, Dimitrios S. Nikolopoulos,
+              Hans Vandierendonck, Deepu John, Bo Ji,
+              <i
+                >Proceedings of the AAAI Conference on Artificial
+                Intelligence</i
+              >
+            </li>
+          </ul>
+          <strong>Projects</strong><br />
+            <ul>
+                <li>
+                <a href="https://arxiv.org/abs/2408.10945"
+                    >HiRED: Attention-Guided Token Dropping for Efficient Inference
+                    of High-Resolution Vision-Language Models</a
+                >
+                by Kazi Hasan Ibn Arif, JinYi Yoon, Dimitrios S. Nikolopoulos,
+                Hans Vandierendonck, Deepu John, Bo Ji,
+                <i
+                    >Proceedings of the AAAI Conference on Artificial
+                    Intelligence</i
+                >
+                </li>
+    
+                <li>
+                <a href="https://arxiv.org/abs/2408.10945"
+                    >HiRED: Attention-Guided Token Dropping for Efficient Inference
+                    of High-Resolution Vision-Language Models</a
+                >
+                by Kazi Hasan Ibn Arif, JinYi Yoon, Dimitrios S. Nikolopoulos,
+                Hans Vandierendonck, Deepu John, Bo Ji,
+                <i
+                    >Proceedings of the AAAI Conference on Artificial
+                    Intelligence</i
+                >
+                </li>
+        </div>
+      </div>
+    </div>
+  </body>
 </html>
