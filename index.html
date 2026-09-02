@@ -38,31 +38,31 @@ nav ul a:hover{color:var(--ink)}
 
 header{padding:clamp(34px,6vw,76px) 0 clamp(26px,5vw,52px)}
 .hero{display:grid; grid-template-columns:1.2fr .8fr; gap:clamp(24px,5vw,56px); align-items:start}
-h1{font-size:clamp(36px,6.2vw,62px); line-height:1.02; letter-spacing:-.035em; margin:0 0 14px; font-weight:700}
+h1{font-size:clamp(31px,4.6vw,48px); line-height:1.06; letter-spacing:-.025em; margin:0 0 14px; font-weight:500}
 .role{font-family:"Space Grotesk",sans-serif; font-size:15px; font-weight:500; color:var(--muted); margin:0 0 20px}
 .lede{max-width:58ch; font-size:clamp(18px,2vw,20px); font-weight:300; line-height:1.7; margin:0 0 16px}
 .bio{max-width:60ch; color:var(--muted); font-size:17px; font-weight:300; margin:0}
 
 /* photo */
-.side{display:flex; flex-direction:column; align-items:center; gap:18px}
-.photo{width:clamp(150px,17vw,196px); aspect-ratio:1; border-radius:50%; object-fit:cover;
-  border:1px solid var(--line); box-shadow:0 0 0 7px var(--panel), 0 0 0 8px var(--line)}
+.photo{width:clamp(104px,11vw,132px); aspect-ratio:1; border-radius:50%; object-fit:cover; display:block;
+  margin:0 0 20px; border:1px solid var(--line); box-shadow:0 0 0 6px var(--panel), 0 0 0 7px var(--line)}
+.side{display:block}
 
 /* compact interactive */
-.budget{width:100%; max-width:236px; background:var(--panel); border:1px solid var(--line); border-radius:var(--r); padding:11px 12px 9px}
+.budget{width:100%; max-width:250px; background:var(--panel); border:1px solid var(--line); border-radius:var(--r); padding:12px 13px 10px}
 .budget .top{display:flex; justify-content:space-between; align-items:baseline;
   font-family:"Space Grotesk",sans-serif; font-size:12px; font-weight:500; color:var(--muted); margin-bottom:8px}
 .budget .top b{color:var(--ink); font-weight:500; font-variant-numeric:tabular-nums}
+.info{display:inline-flex; align-items:center; justify-content:center; width:15px; height:15px; margin-left:5px;
+  border:1px solid var(--line); border-radius:50%; font-size:10px; line-height:1; color:var(--muted);
+  vertical-align:1px; transition:border-color .18s,color .18s}
+.info:hover{border-color:var(--accent); color:var(--accent)}
 .mini{display:grid; grid-template-columns:repeat(24,1fr); gap:1.5px; aspect-ratio:1; margin-bottom:9px}
 .tk{border-radius:1px; background:var(--drop); opacity:.3; transform:scale(.55); transition:background .3s,opacity .3s,transform .3s}
 .tk.kept{background:var(--accent); opacity:1; transform:scale(1)}
 input[type=range]{width:100%; margin:0; accent-color:var(--accent); height:18px}
 .readout{font-family:"Space Grotesk",sans-serif; font-size:12px; line-height:1.5; color:var(--muted); margin:8px 0 0}
 .readout b{color:var(--ink); font-weight:500; font-variant-numeric:tabular-nums}
-
-.copy{display:none; font-family:"Space Grotesk",sans-serif; font-size:13px; font-weight:500;
-  background:none; border:0; padding:4px 2px; color:var(--muted); cursor:pointer}
-.copy:hover{color:var(--ink)}
 
 /* quick links */
 .quick{display:flex; flex-wrap:wrap; gap:9px; margin-top:22px; padding:0; list-style:none}
@@ -89,8 +89,8 @@ input[type=range]{width:100%; margin:0; accent-color:var(--accent); height:18px}
 @media (prefers-reduced-motion: reduce){ .nudge path{stroke-dashoffset:0; animation:none} .nudge polyline{opacity:1; animation:none} }
 
 section{padding:clamp(34px,6vw,64px) 0; border-top:1px solid var(--line)}
-h2{font-size:14px; font-weight:500; color:var(--muted); margin:0 0 26px}
-h2::before{content:""; display:inline-block; width:22px; height:1px; background:var(--amber); vertical-align:middle; margin-right:10px}
+h2{font-size:19px; font-weight:500; letter-spacing:-.01em; color:var(--ink); margin:0 0 26px}
+h2::before{content:""; display:inline-block; width:24px; height:2px; background:var(--amber); vertical-align:middle; margin-right:12px}
 
 .item{display:grid; grid-template-columns:96px 1fr; gap:18px; padding:11px 0;
   border-bottom:1px solid color-mix(in srgb,var(--line) 60%,transparent); font-size:17px; font-weight:300}
@@ -110,7 +110,7 @@ h2::before{content:""; display:inline-block; width:22px; height:1px; background:
 .authors{font-size:15px; font-weight:300; color:var(--muted); margin:0 0 8px}
 .authors b{color:var(--ink); font-weight:500}
 .links{font-family:"Space Grotesk",sans-serif; font-size:13px; font-weight:500; display:flex; gap:14px; flex-wrap:wrap}
-.group{font-family:"Space Grotesk",sans-serif; font-size:13px; font-weight:500; color:var(--amber); margin:30px 0 4px}
+.group{font-family:"Space Grotesk",sans-serif; font-size:16px; font-weight:500; color:var(--amber); margin:34px 0 6px}
 .group:first-of-type{margin-top:0}
 
 .cols{display:grid; grid-template-columns:repeat(auto-fit,minmax(210px,1fr)); gap:26px; font-size:16px; font-weight:300}
@@ -119,10 +119,8 @@ footer{border-top:1px solid var(--line); padding:24px 0 40px; font-family:"Space
 
 @media (max-width:860px){
   body{font-size:17px}
-  .hero{grid-template-columns:1fr; gap:26px}
-  .side{order:-1; flex-direction:row; flex-wrap:wrap; justify-content:flex-start; align-items:center; gap:16px}
-  .photo{width:112px}
-  .budget{max-width:none; flex:1 1 210px}
+  .hero{grid-template-columns:1fr; gap:30px}
+  .budget{max-width:none}
   nav ul{gap:14px; font-size:14px}
   .item{grid-template-columns:1fr; gap:2px; padding:13px 0}
   .when{padding-top:0}
@@ -150,6 +148,7 @@ footer{border-top:1px solid var(--line); padding:24px 0 40px; font-family:"Space
 <header id="top"><div class="wrap">
   <div class="hero">
     <div id="about">
+      <img class="photo" src="image.jpg" alt="Kazi Hasan Ibn Arif" />
       <h1>Kazi Hasan<br>Ibn Arif</h1>
       <p class="role">Machine learning and systems researcher &nbsp;/&nbsp; PhD student, Virginia Tech</p>
       <p class="lede">I'm a PhD student in Machine Learning and Systems at <a href="https://people.cs.vt.edu/boji/group.html">Virginia Tech SNAIL Lab</a>, advised by <a href="https://people.cs.vt.edu/boji/">Dr. Bo Ji</a>.</p>
@@ -180,7 +179,6 @@ footer{border-top:1px solid var(--line); padding:24px 0 40px; font-family:"Space
 
       <div class="cta">
         <a class="btn mail" href="mailto:hasanarif@vt.edu?subject=Hello%20Hasan">Email me</a>
-        <button class="copy" type="button">Copy address</button>
         <span class="nudge">
           <svg viewBox="0 0 46 32" aria-hidden="true">
             <path d="M3 6 C 14 2, 30 6, 38 20"/>
@@ -192,10 +190,8 @@ footer{border-top:1px solid var(--line); padding:24px 0 40px; font-family:"Space
     </div>
 
     <div class="side">
-      <img class="photo" src="image.jpg" alt="Kazi Hasan Ibn Arif" />
-
       <div class="budget">
-        <div class="top"><span>Token budget</span><b id="count">15%</b></div>
+        <div class="top"><span>Token budget<a class="info" href="https://arxiv.org/abs/2408.10945" title="How this works: HiRED, AAAI 2025" aria-label="Read the HiRED paper behind this demo">?</a></span><b id="count">15%</b></div>
         <div class="mini" id="mini" role="img" aria-label="A 24 by 24 image made of tokens. At a low budget only the tokens forming a bird stay lit."></div>
         <input id="slider" type="range" min="5" max="100" step="5" value="15" aria-label="Token budget percentage" />
       </div>
@@ -305,7 +301,6 @@ footer{border-top:1px solid var(--line); padding:24px 0 40px; font-family:"Space
       +1 540 449 6919
       <div class="cta" style="margin-top:16px">
         <a class="btn mail" href="mailto:hasanarif@vt.edu?subject=Hello%20Hasan">Email me</a>
-        <button class="copy" type="button">Copy address</button>
       </div>
     </div>
     <div>
@@ -417,15 +412,6 @@ footer{border-top:1px solid var(--line); padding:24px 0 40px; font-family:"Space
       a.addEventListener('click', function(e){
         e.preventDefault();
         window.open(web, '_blank', 'noopener');
-      });
-    });
-    document.querySelectorAll('.copy').forEach(function(b){
-      b.style.display = 'inline-block';
-      b.addEventListener('click', function(){
-        navigator.clipboard.writeText(ADDR).then(function(){
-          b.textContent = 'Copied ' + ADDR;
-          setTimeout(function(){ b.textContent = 'Copy address'; }, 2200);
-        }).catch(function(){ b.textContent = ADDR; });
       });
     });
   }
