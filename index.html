@@ -1,275 +1,448 @@
 <!DOCTYPE html>
-<!--
-    Plain-Academic by Vasilios Mavroudis
-    Released under the Simplified BSD License/FreeBSD (2-clause) License.
-    https://github.com/mavroudisv/plain-academic
--->
-
 <html lang="en">
-  <head>
-    <title>Kazi Hasan Ibn Arif</title>
-    <meta charset="utf-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1" />
-    <link
-      rel="stylesheet"
-      href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css"
-    />
-    <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.0/jquery.min.js"></script>
-    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/js/bootstrap.min.js"></script>
-    <link
-      href="https://fonts.googleapis.com/css?family=Oswald:700"
-      rel="stylesheet"
-      type="text/css"
-    />
-  </head>
+<head>
+<meta charset="utf-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<title>Kazi Hasan Ibn Arif</title>
+<meta name="description" content="PhD student in Machine Learning and Systems at Virginia Tech SNAIL Lab. Optimizing ML workloads to make AI accessible on edge and commodity devices." />
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@500;700&family=Newsreader:opsz,wght@6..72,300;6..72,400;6..72,500&family=Caveat:wght@600&display=swap" rel="stylesheet">
+<style>
+:root{
+  --paper:#F5F6F4; --panel:#FFFFFF; --ink:#23262B; --muted:#6E7472;
+  --line:#DFE2DE; --accent:#1F5AE8; --amber:#D9911F; --drop:#CFD3CE; --r:10px;
+}
+@media (prefers-color-scheme: dark){
+  :root{ --paper:#15181A; --panel:#1C2023; --ink:#E8EAE6; --muted:#9AA29E;
+         --line:#2C3236; --accent:#7DA2FF; --amber:#E7B15A; --drop:#3A4146; }
+}
+*{box-sizing:border-box}
+html{scroll-behavior:smooth}
+@media (prefers-reduced-motion: reduce){html{scroll-behavior:auto}}
+body{margin:0; background:var(--paper); color:var(--ink);
+  font-family:"Newsreader",Georgia,serif; font-size:18px; line-height:1.65; -webkit-font-smoothing:antialiased}
+.wrap{width:min(1080px,92vw); margin:0 auto}
+a{color:var(--accent); text-decoration:none; border-bottom:1px solid color-mix(in srgb,var(--accent) 35%,transparent)}
+a:hover{border-bottom-color:var(--accent)}
+a:focus-visible,button:focus-visible,input:focus-visible{outline:2px solid var(--accent); outline-offset:3px; border-radius:3px}
+h1,h2,h3,nav,.ui{font-family:"Space Grotesk",system-ui,sans-serif}
 
-  <body>
-    <!-- Navigation -->
-    <nav class="navbar navbar-inverse navbar-static-top" role="navigation">
-      <div class="container">
-        <div class="navbar-header">
-          <button
-            type="button"
-            class="navbar-toggle collapsed"
-            data-toggle="collapse"
-            data-target="#bs-example-navbar-collapse-1"
-          >
-            <span class="sr-only">Toggle navigation</span>
-            <span class="icon-bar"></span>
-            <span class="icon-bar"></span>
-            <span class="icon-bar"></span>
-          </button>
-        </div>
+nav{position:sticky; top:0; z-index:20; background:color-mix(in srgb,var(--paper) 88%,transparent); backdrop-filter:blur(8px); border-bottom:1px solid var(--line)}
+nav .wrap{display:flex; align-items:center; gap:18px; height:58px}
+.mark{font-family:"Caveat",cursive; font-weight:600; font-size:24px; line-height:1; color:var(--ink); border:0}
+.mark span{color:var(--accent)}
+nav ul{display:flex; gap:18px; margin:0 0 0 auto; padding:0; list-style:none; font-size:15px; font-weight:500}
+nav ul a{color:var(--muted); border:0}
+nav ul a:hover{color:var(--ink)}
 
-        <!-- Collect the nav links, forms, and other content for toggling -->
-        <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
-          <ul class="nav navbar-nav">
-            <li><a href="#home">About Me</a></li>
-            <li><a href="#news" style="color: red">News</a></li>
-            <li><a href="#research">Research</a></li>
-            <li><a href="Resume_of_Hasan_Arif.pdf">Resume</a></li>
-          </ul>
-        </div>
-      </div>
-    </nav>
+header{padding:clamp(34px,6vw,76px) 0 clamp(26px,5vw,52px)}
+.hero{display:grid; grid-template-columns:1.2fr .8fr; gap:clamp(24px,5vw,56px); align-items:start}
+h1{font-size:clamp(36px,6.2vw,62px); line-height:1.02; letter-spacing:-.035em; margin:0 0 14px; font-weight:700}
+.role{font-family:"Space Grotesk",sans-serif; font-size:15px; font-weight:500; color:var(--muted); margin:0 0 20px}
+.lede{max-width:58ch; font-size:clamp(18px,2vw,20px); font-weight:300; line-height:1.7; margin:0 0 16px}
+.bio{max-width:60ch; color:var(--muted); font-size:17px; font-weight:300; margin:0}
 
-    <!-- Page Content -->
-    <div class="container">
-      <div class="row">
-        <!-- Entries Column -->
-        <div class="col-md-8" id="home" style="height: auto">
-          <!-- Main Image -->
-          <img
-            class="img-responsive"
-            src="image.jpg"
-            alt="Kazi Hasan Ibn Arif"
-            style="max-width: auto; max-height: 280px"
-          /><br />
+/* photo */
+.side{display:flex; flex-direction:column; align-items:center; gap:18px}
+.photo{width:clamp(150px,17vw,196px); aspect-ratio:1; border-radius:50%; object-fit:cover;
+  border:1px solid var(--line); box-shadow:0 0 0 7px var(--panel), 0 0 0 8px var(--line)}
 
-          <div style="margin-top: 3%; text-align: justify">
-            <p>  
-              I'm a PhD student in Machine Learning and Systems at <a href="https://people.cs.vt.edu/boji/group.html">Virginia Tech SNAIL Lab</a>, advised by <a href="https://people.cs.vt.edu/boji/">Dr. Bo Ji</a>. 
-              My research centers around optimizing machine learning workloads for systems, exploring techniques like efficient self-attention, token dropping, quantization, and many more <b>to make AI more accessible for edge and commodity devices</b>.
-              Prior to starting my PhD, I worked as an ML Engineer at <a href="https://www.iqvia.com/about-us">A Fortune 500 Company</a> where I worked on building and deploying their AI-driven recommendation systems for pharmaceutical companies.
-              Beyond research, I actively contribute to the academic community.
-              I served as Secretary for the Virginia Tech <a href="https://csgrad.cs.vt.edu/">CS Graduate Council</a> in 2024-25. Additionally, I served as a reviewer for workshops at ICLR, CVPR and volunteered at AAAI. 
-            </p>
-          </div>
-        </div>
+/* compact interactive */
+.budget{width:100%; max-width:236px; background:var(--panel); border:1px solid var(--line); border-radius:var(--r); padding:11px 12px 9px}
+.budget .top{display:flex; justify-content:space-between; align-items:baseline;
+  font-family:"Space Grotesk",sans-serif; font-size:12px; font-weight:500; color:var(--muted); margin-bottom:8px}
+.budget .top b{color:var(--ink); font-weight:500; font-variant-numeric:tabular-nums}
+.mini{display:grid; grid-template-columns:repeat(24,1fr); gap:1.5px; aspect-ratio:1; margin-bottom:9px}
+.tk{border-radius:1px; background:var(--drop); opacity:.3; transform:scale(.55); transition:background .3s,opacity .3s,transform .3s}
+.tk.kept{background:var(--accent); opacity:1; transform:scale(1)}
+input[type=range]{width:100%; margin:0; accent-color:var(--accent); height:18px}
+.readout{font-family:"Space Grotesk",sans-serif; font-size:12px; line-height:1.5; color:var(--muted); margin:8px 0 0}
+.readout b{color:var(--ink); font-weight:500; font-variant-numeric:tabular-nums}
 
-        <!-- Contact Info on the Sidebar -->
-        <div class="col-md-4">
-          <div style="font-family: 'Oswald', sans-serif; font-size: 32px">
-            <b>Kazi Hasan Ibn Arif</b>
-          </div>
-          <br />
-          <p><b>Machine Learning and Systems Researcher</b><br /></p>
-          <p>
-            Phd Student at Virginia Tech<br />
-            Interested in Optimization of ML workloads<br />
-            <br />
-            <b>Email</b>: hasanarif [at] vt [dot] edu<br />
-            <b>Phone</b>: +1 540 449 6919<br />
-            <b>Office</b>: Gilbert Place, Room 4215<br />
-            <b>Address</b>: 220 Gilbert Street, Blacksburg, VA 24060<br />
-          </p>
-        </div>
+.copy{display:none; font-family:"Space Grotesk",sans-serif; font-size:13px; font-weight:500;
+  background:none; border:0; padding:4px 2px; color:var(--muted); cursor:pointer}
+.copy:hover{color:var(--ink)}
 
-        <!-- Links on the Sidebar -->
-        <div class="col-md-4" style="margin-top: 2%">
-          <dd>
-            <a
-              href="https://scholar.google.com/citations?user=3OhNWLcAAAAJ&hl=en"
-              >Google Scholar</a
-            >
-          </dd>
-          <dd>
-            <a href="https://www.linkedin.com/in/hasan-arif-8b78a61a3/"
-              >LinkedIn</a
-            >
-          </dd>
-          <dd>
-            <a href="https://github.com/hasanar1f">Github</a>
-          </dd>
-        </div>
+/* quick links */
+.quick{display:flex; flex-wrap:wrap; gap:9px; margin-top:22px; padding:0; list-style:none}
+.quick a{display:inline-flex; align-items:center; gap:7px; font-family:"Space Grotesk",sans-serif;
+  font-size:14px; font-weight:500; color:var(--ink); background:var(--panel);
+  border:1px solid var(--line); border-radius:100px; padding:8px 15px; transition:border-color .18s, color .18s}
+.quick a:hover{border-color:var(--accent); color:var(--accent)}
+.quick svg{width:15px; height:15px; fill:currentColor; flex:none; opacity:.85}
 
-        <!-- Latest News -->
-        <div class="col-md-8" id="news" style="height: auto">
-          <h2 style="color: red">News</h2>
-          <ul>
-            <li>
-              [Oct 2025] I will be working as a <b>PhD Researcher Intern</b> at <a href="https://www.bytedance.com/en/">ByteDance</a> AI Infra team in Seattle, Washington from this June in 2026.
-            </li>
-            <li>
-              [May 2025] I received <b>$1000 travel grant</b> for attending <b>MLSys 2025</b>. See you in Santa Clara, California!
-            </li>
-            <li>
-              [May 2025] I will be working as an <b>AI Researcher Intern</b> at <a href="https://www.kaliber.ai/about-us">Kaliber Labs</a> in San Mateo from May to Aug 2025.
-            </li>
-            <li>
-              [Apr 2025] I got featured in <a href="https://www.chameleoncloud.org/blog/2025/04/29/faster-multimodal-ai-lower-gpu-costs/">NSF Chameleon's monthly blog</a>.
-            </li>
-            <li>
-              [Apr 2025] I presented two recent works (HiRED and PAINT) at <a href="https://iclr.cc/Conferences/2025/CallForPapers">CCI Symposium 2025</a> in Richmond, Virginia.
-            <li>
-              [Mar 2025] I got selected as 2025 CCI SWVA Cyber Innovation Scholar and received <b>$1500 grant</b>!!!
-            </li>
-            <li>
-              [April 2025] One first author paper accepted in CVPR 2025 workshop.
-            </li>
-            <li>
-              [Mar 2025] I <b>got featured</b> by Commonwealth Cyber Initiative Southwest Virginia in their <a href="https://www.linkedin.com/posts/kazi-hasan-ibn-arif-8b78a61a3_spotlight-on-kazi-hasan-ibn-arif-a-phd-activity-7307442534350254080-bI6d?utm_source=social_share_send&utm_medium=member_desktop_web&rcm=ACoAAC-m54sBdeBj3I8e55KsXKQcQfoLFxeW0qQ">official LinkedIn</a>.
-            </li>
-            <li>
-              [Feb 2025] I <a href="https://media.licdn.com/dms/image/v2/D5622AQFowowuVIfTow/feedshare-shrink_1280/B56ZVP8W2WGQAo-/0/1740802982065?e=1746057600&v=beta&t=71JK4PvkYx17mpUDIG5nagYrpIBiV73NZSYntUBZxuQ">met Andrew Ng</a>. One of the top moments in AAAI 2025 for me!</a>.
-            </li>
-            <li>
-              [Feb 2025] I <b>presented my paper</b> (HiRED) at AAAI 2025 in Philadelphia, PA. [<a href="https://media.licdn.com/dms/image/v2/D5622AQF2KOpz5Usi8Q/feedshare-shrink_800/B56ZVNDv8sHsAg-/0/1740754595931?e=1746057600&v=beta&t=JxG7OlW88srnfFH-DrW0864sBXPP2XOy8yVXQwWCWhE">Image</a>] 
-            </li>
-            <li>
-              [Jan 2025] I made a <b>view demo</b> for my AAAI 2025 paper. Check that out in <a href="https://www.youtube.com/watch?v=7ND4b64BgtI">Youtube</a>!
-            </li>
-            <li>
-              [Jan 2025] I passed my <b>PhD Qualifying Exam</b>. One step closer to the PhD!
-            </li>
-            <li>
-              [Dec 2024] One first co-author paper accepted in AAAI 2024 workshop.
-            <li>
-              [Aug 2024] <b>My first "first-author" paper has been accepted at AAAI 2025</b>!!! See you in Philly!
-            </li>
-            <li>
-              [Aug 2024] I attended Artificial Intelligence Modeling, Analysis, and Control of Complex Systems Workshop in Columbus, Ohio.
-            </li>
-            <li>
-              [Jul 2024] I attended the <b>MLSys 2024</b> conference in Santa Clara, California. 
-            </li>
-            <li>
-              [Jun 2024] I got selected as 2024 CCI SWVA Cyber Innovation Scholar and received <b>$2000 grant</b>!!!
-            </li>
-            <li>
-              [Aug 2023] I <b>started my PhD</b> in Virginia Tech Dept. of Computer Science.
-            </li>
-             <li>
-              [Mar 2023] I received <b>best project presentation award</b> in Fusemachines H&M AI Fellowship program.
-            </li> 
-            <li>
-              [May 2022]  I have <b>joined</b> <a href="https://www.iqvia.com/solutions/technologies/performance-management-and-insights/orchestrated-analytics/next-best">IQVIA</a> Next Best Action team as Machine Learning Engineer.
-            </li>
-            <li>
-              [May 2022]  I <b>defended</b> my undergraduate thesis titled "Generate 3D Bone from DICOM using Deep CNN". 
-            </li>
+/* email cta */
+.cta{margin-top:18px; display:flex; align-items:center; gap:14px; flex-wrap:wrap}
+.btn{display:inline-block; font-family:"Space Grotesk",sans-serif; font-size:15px; font-weight:500;
+  background:var(--accent); color:#fff; border:0; border-radius:100px; padding:13px 26px; cursor:pointer;
+  transition:transform .18s ease, box-shadow .18s ease; box-shadow:0 3px 14px color-mix(in srgb,var(--accent) 30%,transparent)}
+.btn:hover{transform:translateY(-2px); box-shadow:0 7px 20px color-mix(in srgb,var(--accent) 38%,transparent)}
+@media (prefers-color-scheme: dark){ .btn{color:#12161A} }
+.nudge{display:flex; align-items:center; gap:6px; font-family:"Caveat",cursive; font-size:21px; color:var(--amber); line-height:1.15}
+.nudge svg{flex:none; width:46px; height:32px; transform:scaleX(-1)}
+.nudge path{stroke:var(--amber); stroke-width:2; fill:none; stroke-linecap:round;
+  stroke-dasharray:120; stroke-dashoffset:120; animation:draw 1.1s .5s ease forwards}
+.nudge polyline{stroke:var(--amber); stroke-width:2; fill:none; stroke-linecap:round; stroke-linejoin:round; opacity:0; animation:tip .3s 1.5s ease forwards}
+@keyframes draw{to{stroke-dashoffset:0}}
+@keyframes tip{to{opacity:1}}
+@media (prefers-reduced-motion: reduce){ .nudge path{stroke-dashoffset:0; animation:none} .nudge polyline{opacity:1; animation:none} }
 
+section{padding:clamp(34px,6vw,64px) 0; border-top:1px solid var(--line)}
+h2{font-size:14px; font-weight:500; color:var(--muted); margin:0 0 26px}
+h2::before{content:""; display:inline-block; width:22px; height:1px; background:var(--amber); vertical-align:middle; margin-right:10px}
 
-          </ul>
-        </div>
+.item{display:grid; grid-template-columns:96px 1fr; gap:18px; padding:11px 0;
+  border-bottom:1px solid color-mix(in srgb,var(--line) 60%,transparent); font-size:17px; font-weight:300}
+.item:last-child{border-bottom:0}
+.when{font-family:"Space Grotesk",sans-serif; font-size:13px; font-weight:500; color:var(--muted); padding-top:5px}
+.item b{font-weight:500}
+.hidden{display:none}
+.more{margin-top:18px; font-family:"Space Grotesk",sans-serif; font-size:14px; font-weight:500;
+  background:none; border:1px solid var(--line); border-radius:100px; padding:8px 16px; color:var(--ink); cursor:pointer}
+.more:hover{border-color:var(--accent); color:var(--accent)}
 
-        <!-- Publications and Projects -->
-        <div class="col-md-8" id="research" style="height: 100vh">
-          <h2>Research and Publications</h2>
+.pub{display:grid; grid-template-columns:132px 1fr; gap:18px; padding:20px 0;
+  border-bottom:1px solid color-mix(in srgb,var(--line) 60%,transparent)}
+.venue{font-family:"Space Grotesk",sans-serif; font-size:13px; font-weight:500; line-height:1.4; color:var(--ink)}
+.venue small{display:block; color:var(--muted); font-weight:500}
+.title{font-size:19px; font-weight:400; line-height:1.4; margin:0 0 5px}
+.authors{font-size:15px; font-weight:300; color:var(--muted); margin:0 0 8px}
+.authors b{color:var(--ink); font-weight:500}
+.links{font-family:"Space Grotesk",sans-serif; font-size:13px; font-weight:500; display:flex; gap:14px; flex-wrap:wrap}
+.group{font-family:"Space Grotesk",sans-serif; font-size:13px; font-weight:500; color:var(--amber); margin:30px 0 4px}
+.group:first-of-type{margin-top:0}
 
-          <strong>Peer-reviewed</strong><br />
-          <ul>
-            <li>
-              HiRED: Attention-Guided Token Dropping for Efficient Inference of High-Resolution Vision-Language Models by <b>Kazi Hasan Ibn Arif</b>, JinYi Yoon, Dimitrios S.
-              Nikolopoulos, Hans Vandierendonck, Deepu John, Bo Ji,
-              <i
-                >Proceedings of the 2025 AAAI Conference on Artificial
-                Intelligence in Philadelphia, Pennsylvania</i
-              >
-              [<a href="https://arxiv.org/abs/2408.10945">paper</a>]
-              [<a href="https://github.com/hasanar1f/HiRED">code</a>]
-            </li>
+.cols{display:grid; grid-template-columns:repeat(auto-fit,minmax(210px,1fr)); gap:26px; font-size:16px; font-weight:300}
+.cols h3{font-family:"Space Grotesk",sans-serif; font-size:13px; font-weight:500; color:var(--muted); margin:0 0 8px}
+footer{border-top:1px solid var(--line); padding:24px 0 40px; font-family:"Space Grotesk",sans-serif; font-size:13px; color:var(--muted)}
 
-            <li>
-              PAINT: Paying Attention to INformed Tokens to Mitigate Hallucination in Large Vision-Language Model 
-              by <b>Kazi Hasan Ibn Arif</b>, Sajib Acharjee Dip, Khizar Hussain, Lang Zhang, Chris Thomas
-              <i
-                >Proceedings of the 2025 CVPR Workshop for Trustworthiness in Multi-Modal Open-World Intelligence in Nashville TN, United States.</i
-              >
-              [<a href="https://arxiv.org/abs/2501.12206">paper</a>]
-              [<a href="https://github.com/hasanar1f/PAINT">code</a>]
-            </li>
+@media (max-width:860px){
+  body{font-size:17px}
+  .hero{grid-template-columns:1fr; gap:26px}
+  .side{order:-1; flex-direction:row; flex-wrap:wrap; justify-content:flex-start; align-items:center; gap:16px}
+  .photo{width:112px}
+  .budget{max-width:none; flex:1 1 210px}
+  nav ul{gap:14px; font-size:14px}
+  .item{grid-template-columns:1fr; gap:2px; padding:13px 0}
+  .when{padding-top:0}
+  .pub{grid-template-columns:1fr; gap:8px}
+  .cta{gap:10px}
+  .nudge{font-size:19px}
+}
+@media (max-width:400px){ nav ul{gap:12px} }
+</style>
+</head>
+<body>
 
-            <li>
-              Equitable Skin Disease Prediction Using Transfer Learning and Domain Adaptation
-              by Sajib Acharjee Dip, <b>Kazi Hasan Ibn Arif</b>, Uddip Acharjee
-              Shuvo, Ishtiaque Ahmed Khan, Na Meng
-              <i
-                >Proceedings of the 2024 AAAI Conference on Artificial
-                Intelligence Machine Intelligence for Equitable Global Health (MI4EGH) Workshop in Arlington, Virginia</i
-              >
-              [<a href="https://ojs.aaai.org/index.php/AAAI-SS/article/download/31800/33967">paper</a>]
-            </li>
+<nav>
+  <div class="wrap">
+    <a class="mark" href="#top">hasan<span>.</span></a>
+    <ul>
+      <li><a href="#about">About</a></li>
+      <li><a href="#news">News</a></li>
+      <li><a href="#research">Research</a></li>
+      <li><a href="Resume_of_Hasan_Arif.pdf">Resume</a></li>
+    </ul>
+  </div>
+</nav>
 
-            <li>
-              Local and Global Feature Based Hybrid Deep Learning Model for Bangla Parts of Speech Tagging
-              by Muntasir Hoq, <b>Kazi Hasan Ibn Arif</b>, Mohammed Nazim Uddin
-              <i
-                >Proceedings of 2021 2nd International Conference for Emerging Technology (INCET) in Belagavi, India</i
-              >
-              [<a href="https://ieeexplore-ieee-org.ezproxy.lib.vt.edu/abstract/document/9456108">paper</a>]
-            </li>
+<header id="top"><div class="wrap">
+  <div class="hero">
+    <div id="about">
+      <h1>Kazi Hasan<br>Ibn Arif</h1>
+      <p class="role">Machine learning and systems researcher &nbsp;/&nbsp; PhD student, Virginia Tech</p>
+      <p class="lede">I'm a PhD student in Machine Learning and Systems at <a href="https://people.cs.vt.edu/boji/group.html">Virginia Tech SNAIL Lab</a>, advised by <a href="https://people.cs.vt.edu/boji/">Dr. Bo Ji</a>.</p>
+      <p class="bio">
+        My research centers around optimizing machine learning workloads for systems, exploring techniques like
+        efficient self-attention, token dropping, quantization, and many more <b>to make AI more accessible for
+        edge and commodity devices</b>. Prior to starting my PhD, I worked as an ML Engineer at
+        <a href="https://www.iqvia.com/about-us">IQVIA</a> where I worked on building and deploying their AI-driven
+        recommendation systems for pharmaceutical companies. Beyond research, I actively contribute to the academic
+        community. I served as Secretary for the Virginia Tech <a href="https://csgrad.cs.vt.edu/">CS Graduate Council</a>
+        in 2024&ndash;25. Additionally, I served as a reviewer for workshops at ICLR, CVPR and volunteered at AAAI.
+      </p>
 
+      <ul class="quick">
+        <li><a href="https://scholar.google.com/citations?user=3OhNWLcAAAAJ&hl=en">
+          <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M12 2 1 8l11 6 9-4.9V16h2V8L12 2zM5 13.2V17c0 2.2 3.1 4 7 4s7-1.8 7-4v-3.8l-7 3.8-7-3.8z"/></svg>
+          Google Scholar</a></li>
+        <li><a href="https://github.com/hasanar1f">
+          <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M12 .5a11.5 11.5 0 0 0-3.6 22.4c.6.1.8-.2.8-.6v-2c-3.2.7-3.9-1.5-3.9-1.5-.5-1.4-1.3-1.7-1.3-1.7-1-.7.1-.7.1-.7 1.1.1 1.7 1.2 1.7 1.2 1 1.7 2.7 1.2 3.4.9.1-.7.4-1.2.7-1.5-2.6-.3-5.3-1.3-5.3-5.7 0-1.3.5-2.3 1.2-3.1-.1-.3-.5-1.5.1-3.1 0 0 1-.3 3.2 1.2a11 11 0 0 1 5.8 0c2.2-1.5 3.2-1.2 3.2-1.2.6 1.6.2 2.8.1 3.1.8.8 1.2 1.8 1.2 3.1 0 4.4-2.7 5.4-5.3 5.7.4.4.8 1.1.8 2.2v3.3c0 .4.2.7.8.6A11.5 11.5 0 0 0 12 .5z"/></svg>
+          GitHub</a></li>
+        <li><a href="https://www.linkedin.com/in/hasan-arif-8b78a61a3/">
+          <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M4.98 3.5a2.5 2.5 0 1 1 0 5 2.5 2.5 0 0 1 0-5zM3 9h4v12H3V9zm7 0h3.8v1.7h.1c.5-1 1.8-2 3.7-2 4 0 4.7 2.5 4.7 5.8V21h-4v-5.7c0-1.4 0-3.1-1.9-3.1s-2.2 1.5-2.2 3V21h-4V9z"/></svg>
+          LinkedIn</a></li>
+        <li><a href="Resume_of_Hasan_Arif.pdf">
+          <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8l-6-6zm-1 7V3.5L18.5 9H13zM8 13h8v2H8v-2zm0 4h8v2H8v-2z"/></svg>
+          Resume</a></li>
+      </ul>
 
-          </ul>
-
-
-          <strong>Preprints</strong><br />
-          <ul>
-
-            <li>
-            Intent-Aware Caching for Efficient LLM Serving
-              by <b>Kazi Hasan Ibn Arif</b>, JinYi Yoon, Dimitrios S. Nikolopoulos, Hans Vandierendonck, Deepu John, Bo Ji
-              <i
-                >In submission</i
-              >
-              [<a href="">paper</a>]
-            </li>
-              
-              <li>
-              GazeVLM: Gaze-Guided Vision-Language Models for Efficient and Robust Inference
-              by JinYi Yoon, <b>Kazi Hasan Ibn Arif</b>, Bo Ji
-              <i
-                >In submission</i
-              >
-              [<a href="https://openreview.net/forum?id=RAUMsywTko">paper</a>]
-            </li>
-
-          </ul>
-          <strong>Undergrad thesis</strong><br />
-            <ul>
-                <li>
-                Generate 3D Bone from DICOM using Deep CNN</a
-                >
-                by <b>Kazi Hasan Ibn Arif</b>, Jainta Paul, Dr. Mahmuda Naznin
-                <i
-                    >Undergraduate Thesis</i
-                >
-                [<a href="https://www.researchgate.net/profile/Kazi-Hasan-Arif/publication/365654602_Generate_3D_Bone_from_DICOM_using_Deep_CNN/links/637d20561766b34c5447c0db/Generate-3D-Bone-from-DICOM-using-Deep-CNN.pdf">paper</a>]
-                </li>
-
-        </div>
+      <div class="cta">
+        <a class="btn mail" href="mailto:hasanarif@vt.edu?subject=Hello%20Hasan">Email me</a>
+        <button class="copy" type="button">Copy address</button>
+        <span class="nudge">
+          <svg viewBox="0 0 46 32" aria-hidden="true">
+            <path d="M3 6 C 14 2, 30 6, 38 20"/>
+            <polyline points="31,19 38,21 39,13"/>
+          </svg>
+          have an idea? let's collaborate
+        </span>
       </div>
     </div>
-  </body>
+
+    <div class="side">
+      <img class="photo" src="image.jpg" alt="Kazi Hasan Ibn Arif" />
+
+      <div class="budget">
+        <div class="top"><span>Token budget</span><b id="count">15%</b></div>
+        <div class="mini" id="mini" role="img" aria-label="A 24 by 24 image made of tokens. At a low budget only the tokens forming a bird stay lit."></div>
+        <input id="slider" type="range" min="5" max="100" step="5" value="15" aria-label="Token budget percentage" />
+      </div>
+    </div>
+  </div>
+</div></header>
+
+<section id="news"><div class="wrap">
+  <h2>News</h2>
+  <div id="newsList">
+    <div class="item"><div class="when">Oct 2025</div><div>Joining <a href="https://www.bytedance.com/en/">ByteDance</a> AI Infra in Seattle as a <b>PhD Researcher Intern</b>, starting June 2026.</div></div>
+    <div class="item"><div class="when">May 2025</div><div>Received a <b>$1,000 travel grant</b> for <b>MLSys 2025</b>. See you in Santa Clara.</div></div>
+    <div class="item"><div class="when">May 2025</div><div>Summer as an <b>AI Researcher Intern</b> at <a href="https://www.kaliber.ai/about-us">Kaliber Labs</a> in San Mateo, May to Aug 2025.</div></div>
+    <div class="item"><div class="when">Apr 2025</div><div>Featured in <a href="https://www.chameleoncloud.org/blog/2025/04/29/faster-multimodal-ai-lower-gpu-costs/">NSF Chameleon's monthly blog</a>.</div></div>
+    <div class="item"><div class="when">Apr 2025</div><div>Presented HiRED and PAINT at the <a href="https://iclr.cc/Conferences/2025/CallForPapers">CCI Symposium 2025</a> in Richmond, Virginia.</div></div>
+    <div class="item"><div class="when">Apr 2025</div><div>First-author paper accepted at a <b>CVPR 2025</b> workshop.</div></div>
+    <div class="item hidden extra"><div class="when">Mar 2025</div><div>Selected as a 2025 CCI SWVA Cyber Innovation Scholar, with a <b>$1,500 grant</b>.</div></div>
+    <div class="item hidden extra"><div class="when">Mar 2025</div><div>Featured by Commonwealth Cyber Initiative Southwest Virginia on their <a href="https://www.linkedin.com/posts/kazi-hasan-ibn-arif-8b78a61a3_spotlight-on-kazi-hasan-ibn-arif-a-phd-activity-7307442534350254080-bI6d">LinkedIn</a>.</div></div>
+    <div class="item hidden extra"><div class="when">Feb 2025</div><div>I <a href="https://media.licdn.com/dms/image/v2/D5622AQFowowuVIfTow/feedshare-shrink_1280/B56ZVP8W2WGQAo-/0/1740802982065?e=1746057600&v=beta&t=71JK4PvkYx17mpUDIG5nagYrpIBiV73NZSYntUBZxuQ">met Andrew Ng</a> at AAAI 2025. One of the best moments of the trip.</div></div>
+    <div class="item hidden extra"><div class="when">Feb 2025</div><div>Presented HiRED at <b>AAAI 2025</b> in Philadelphia. [<a href="https://media.licdn.com/dms/image/v2/D5622AQF2KOpz5Usi8Q/feedshare-shrink_800/B56ZVNDv8sHsAg-/0/1740754595931?e=1746057600&v=beta&t=JxG7OlW88srnfFH-DrW0864sBXPP2XOy8yVXQwWCWhE">photo</a>]</div></div>
+    <div class="item hidden extra"><div class="when">Jan 2025</div><div>Made a <a href="https://www.youtube.com/watch?v=7ND4b64BgtI">video demo</a> of the AAAI 2025 paper.</div></div>
+    <div class="item hidden extra"><div class="when">Jan 2025</div><div>Passed my <b>PhD qualifying exam</b>.</div></div>
+    <div class="item hidden extra"><div class="when">Dec 2024</div><div>First co-author paper accepted at an <b>AAAI 2024</b> workshop.</div></div>
+    <div class="item hidden extra"><div class="when">Aug 2024</div><div><b>My first first-author paper was accepted at AAAI 2025.</b> See you in Philly.</div></div>
+    <div class="item hidden extra"><div class="when">Aug 2024</div><div>Attended the AI Modeling, Analysis and Control of Complex Systems workshop in Columbus, Ohio.</div></div>
+    <div class="item hidden extra"><div class="when">Jul 2024</div><div>Attended <b>MLSys 2024</b> in Santa Clara, California.</div></div>
+    <div class="item hidden extra"><div class="when">Jun 2024</div><div>Selected as a 2024 CCI SWVA Cyber Innovation Scholar, with a <b>$2,000 grant</b>.</div></div>
+    <div class="item hidden extra"><div class="when">Aug 2023</div><div><b>Started my PhD</b> in the Virginia Tech Department of Computer Science.</div></div>
+    <div class="item hidden extra"><div class="when">Mar 2023</div><div>Best project presentation award, Fusemachines H&amp;M AI Fellowship.</div></div>
+    <div class="item hidden extra"><div class="when">May 2022</div><div>Joined the <a href="https://www.iqvia.com/solutions/technologies/performance-management-and-insights/orchestrated-analytics/next-best">IQVIA</a> Next Best Action team as a Machine Learning Engineer.</div></div>
+    <div class="item hidden extra"><div class="when">May 2022</div><div>Defended my undergraduate thesis, "Generate 3D Bone from DICOM using Deep CNN".</div></div>
+  </div>
+  <button class="more" id="more" type="button">Show earlier news</button>
+</div></section>
+
+<section id="research"><div class="wrap">
+  <h2>Research and publications</h2>
+
+  <p class="group">Peer-reviewed</p>
+  <div class="pub">
+    <div class="venue">AAAI 2025<small>Philadelphia, PA</small></div>
+    <div>
+      <p class="title">HiRED: Attention-Guided Token Dropping for Efficient Inference of High-Resolution Vision-Language Models</p>
+      <p class="authors"><b>Kazi Hasan Ibn Arif</b>, JinYi Yoon, Dimitrios S. Nikolopoulos, Hans Vandierendonck, Deepu John, Bo Ji</p>
+      <p class="links"><a href="https://arxiv.org/abs/2408.10945">Paper</a><a href="https://github.com/hasanar1f/HiRED">Code</a><a href="https://www.youtube.com/watch?v=7ND4b64BgtI">Demo</a></p>
+    </div>
+  </div>
+  <div class="pub">
+    <div class="venue">CVPR 2025 workshop<small>TMM-OWI, Nashville, TN</small></div>
+    <div>
+      <p class="title">PAINT: Paying Attention to INformed Tokens to Mitigate Hallucination in Large Vision-Language Models</p>
+      <p class="authors"><b>Kazi Hasan Ibn Arif</b>, Sajib Acharjee Dip, Khizar Hussain, Lang Zhang, Chris Thomas</p>
+      <p class="links"><a href="https://arxiv.org/abs/2501.12206">Paper</a><a href="https://github.com/hasanar1f/PAINT">Code</a></p>
+    </div>
+  </div>
+  <div class="pub">
+    <div class="venue">AAAI 2024 workshop<small>MI4EGH, Arlington, VA</small></div>
+    <div>
+      <p class="title">Equitable Skin Disease Prediction Using Transfer Learning and Domain Adaptation</p>
+      <p class="authors">Sajib Acharjee Dip, <b>Kazi Hasan Ibn Arif</b>, Uddip Acharjee Shuvo, Ishtiaque Ahmed Khan, Na Meng</p>
+      <p class="links"><a href="https://ojs.aaai.org/index.php/AAAI-SS/article/download/31800/33967">Paper</a></p>
+    </div>
+  </div>
+  <div class="pub">
+    <div class="venue">INCET 2021<small>Belagavi, India</small></div>
+    <div>
+      <p class="title">Local and Global Feature Based Hybrid Deep Learning Model for Bangla Parts of Speech Tagging</p>
+      <p class="authors">Muntasir Hoq, <b>Kazi Hasan Ibn Arif</b>, Mohammed Nazim Uddin</p>
+      <p class="links"><a href="https://ieeexplore-ieee-org.ezproxy.lib.vt.edu/abstract/document/9456108">Paper</a></p>
+    </div>
+  </div>
+
+  <p class="group">Preprints</p>
+  <div class="pub">
+    <div class="venue">In submission</div>
+    <div>
+      <p class="title">Intent-Aware Caching for Efficient LLM Serving</p>
+      <p class="authors"><b>Kazi Hasan Ibn Arif</b>, JinYi Yoon, Dimitrios S. Nikolopoulos, Hans Vandierendonck, Deepu John, Bo Ji</p>
+    </div>
+  </div>
+  <div class="pub">
+    <div class="venue">In submission</div>
+    <div>
+      <p class="title">GazeVLM: Gaze-Guided Vision-Language Models for Efficient and Robust Inference</p>
+      <p class="authors">JinYi Yoon, <b>Kazi Hasan Ibn Arif</b>, Bo Ji</p>
+      <p class="links"><a href="https://openreview.net/forum?id=RAUMsywTko">Paper</a></p>
+    </div>
+  </div>
+
+  <p class="group">Undergraduate thesis</p>
+  <div class="pub">
+    <div class="venue">2022</div>
+    <div>
+      <p class="title">Generate 3D Bone from DICOM using Deep CNN</p>
+      <p class="authors"><b>Kazi Hasan Ibn Arif</b>, Jainta Paul, Dr. Mahmuda Naznin</p>
+      <p class="links"><a href="https://www.researchgate.net/profile/Kazi-Hasan-Arif/publication/365654602_Generate_3D_Bone_from_DICOM_using_Deep_CNN/links/637d20561766b34c5447c0db/Generate-3D-Bone-from-DICOM-using-Deep-CNN.pdf">Paper</a></p>
+    </div>
+  </div>
+</div></section>
+
+<section id="contact"><div class="wrap">
+  <h2>Get in touch</h2>
+  <div class="cols">
+    <div>
+      <h3>Email</h3>
+      hasanarif [at] vt [dot] edu<br>
+      +1 540 449 6919
+      <div class="cta" style="margin-top:16px">
+        <a class="btn mail" href="mailto:hasanarif@vt.edu?subject=Hello%20Hasan">Email me</a>
+        <button class="copy" type="button">Copy address</button>
+      </div>
+    </div>
+    <div>
+      <h3>Office</h3>
+      Gilbert Place, Room 4215<br>
+      220 Gilbert Street<br>
+      Blacksburg, VA 24060
+    </div>
+    <div>
+      <h3>Elsewhere</h3>
+      <a href="https://scholar.google.com/citations?user=3OhNWLcAAAAJ&hl=en">Google Scholar</a><br>
+      <a href="https://github.com/hasanar1f">GitHub</a><br>
+      <a href="https://www.linkedin.com/in/hasan-arif-8b78a61a3/">LinkedIn</a><br>
+      <a href="Resume_of_Hasan_Arif.pdf">Resume</a>
+    </div>
+  </div>
+</div></section>
+
+<footer><div class="wrap">Kazi Hasan Ibn Arif &nbsp;/&nbsp; Virginia Tech Department of Computer Science</div></footer>
+
+<script>
+(function(){
+  var mini = document.getElementById('mini'),
+      slider = document.getElementById('slider'),
+      countEl = document.getElementById('count'),
+      reduce = window.matchMedia('(prefers-reduced-motion: reduce)').matches,
+      COLS = 24, ROWS = 24, N = COLS * ROWS,
+      cells = [], rank = [];
+
+  // the "image": a gull in flight. # is the subject, . is sky.
+  var art = [
+    '........................',
+    '........................',
+    '........................',
+    '........................',
+    '........................',
+    '........................',
+    '....##............##....',
+    '...####..........####...',
+    '...#####........#####...',
+    '....#####......#####....',
+    '.....#####....#####.....',
+    '......#####..#####......',
+    '.......##########.......',
+    '........########........',
+    '.........######.........',
+    '..........####..........',
+    '...........##...........',
+    '........................',
+    '........................',
+    '........................',
+    '........................',
+    '........................',
+    '........................',
+    '........................'
+  ];
+  function isBird(x, y){ return art[y] && art[y][x] === '#'; }
+
+  // distance from each token to the nearest bird token, so sky nearby survives longer
+  function nearest(x, y){
+    var best = 99;
+    for (var yy = 0; yy < ROWS; yy++)
+      for (var xx = 0; xx < COLS; xx++)
+        if (isBird(xx, yy)) best = Math.min(best, Math.hypot(xx - x, yy - y));
+    return best;
+  }
+
+  // one fixed attention map, so the picture is stable while you drag
+  var scored = [];
+  for (var i = 0; i < N; i++){
+    var d = document.createElement('div');
+    d.className = 'tk'; mini.appendChild(d); cells.push(d);
+    var x = i % COLS, y = Math.floor(i / COLS), v;
+    if (isBird(x, y)){
+      var solid = 0;                                  // interior beats the edges
+      for (var dy = -1; dy <= 1; dy++)
+        for (var dx = -1; dx <= 1; dx++) if (isBird(x + dx, y + dy)) solid++;
+      v = 0.62 + solid * 0.04 + Math.random() * 0.03;
+    } else {
+      v = 0.5 - Math.min(nearest(x, y), 11) * 0.04 + Math.random() * 0.02;
+    }
+    scored.push({ i: i, v: v });
+  }
+  scored.sort(function(a, b){ return b.v - a.v; });
+  scored.forEach(function(o, k){ rank[o.i] = k; });
+
+  function render(pct, animate){
+    var keep = Math.round(N * pct / 100);
+    cells.forEach(function(c, i){
+      var on = rank[i] < keep,
+          delay = animate && !reduce ? rank[i] * 2 : 0;
+      setTimeout(function(){ c.classList.toggle('kept', on); }, delay);
+    });
+    countEl.textContent = pct + '%';
+  }
+
+  render(15, true);
+  slider.addEventListener('input', function(){ render(+slider.value, false); });
+
+  // Email: phones use the mail app (mailto), desktop opens a Gmail compose tab
+  var ADDR = 'hasanarif@vt.edu', SUBJ = 'Hello Hasan',
+      onPhone = window.matchMedia('(pointer: coarse)').matches ||
+                /Android|iPhone|iPad|iPod/i.test(navigator.userAgent);
+
+  if (!onPhone){
+    var web = 'https://mail.google.com/mail/?view=cm&fs=1&to=' +
+              encodeURIComponent(ADDR) + '&su=' + encodeURIComponent(SUBJ);
+    document.querySelectorAll('.btn.mail').forEach(function(a){
+      a.addEventListener('click', function(e){
+        e.preventDefault();
+        window.open(web, '_blank', 'noopener');
+      });
+    });
+    document.querySelectorAll('.copy').forEach(function(b){
+      b.style.display = 'inline-block';
+      b.addEventListener('click', function(){
+        navigator.clipboard.writeText(ADDR).then(function(){
+          b.textContent = 'Copied ' + ADDR;
+          setTimeout(function(){ b.textContent = 'Copy address'; }, 2200);
+        }).catch(function(){ b.textContent = ADDR; });
+      });
+    });
+  }
+
+  var more = document.getElementById('more');
+  more.addEventListener('click', function(){
+    var hid = document.querySelectorAll('#newsList .extra.hidden');
+    if (hid.length){
+      hid.forEach(function(el){ el.classList.remove('hidden'); });
+      more.textContent = 'Show less';
+    } else {
+      document.querySelectorAll('#newsList .extra').forEach(function(el){ el.classList.add('hidden'); });
+      more.textContent = 'Show earlier news';
+      document.getElementById('news').scrollIntoView({ block: 'start' });
+    }
+  });
+})();
+</script>
+</body>
 </html>
